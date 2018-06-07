@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-list-header>
+      Radius (meters)
+      <ion-badge item-end>{{radius}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range min="50" max="500" [(ngModel)]="radius">
+        <ion-label range-left>50m</ion-label>
+        <ion-label range-right>500m</ion-label>
+      </ion-range>
+    </ion-item>
+    <ion-list-header>
+      Trigger Action
+    </ion-list-header>
+    <ion-item>
+      <ion-label>When</ion-label>
+      <ion-select [(ngModel)]="action">
+        <ion-option value="1">Enter in Geofence</ion-option>
+        <ion-option value="2">Exit from Geofence</ion-option>
+        <ion-option value="3">Both</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+  <button ion-button full (click)="saveSettings()" [disabled]="!isenabled">Save</button>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Source</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <p>
+    Insert the source of the Geofence JSON configuration file.
+  </p>
+  <ion-list>
+    <ion-list-header>
+      Source:
+    </ion-list-header>
+    <ion-item>
+      <ion-input type="text" placeholder="Json source" [(ngModel)]='remoteJsonUrl'></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)="loadJson()" [disabled]="!isenabled">Load JSON</button>
+  <button ion-button full (click)="addToGeofence()" color="danger" [disabled]="!addGeofenceIsEnabled">Add to Watched Geofence</button>
+  <p>{{jsonData | json}}</p>
+
+</ion-content>
